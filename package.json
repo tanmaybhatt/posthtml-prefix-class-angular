@@ -1,7 +1,7 @@
 {
-  "name": "posthtml-prefix-class",
-  "version": "1.0.3",
-  "description": "PostHTML plugin to prefix class names",
+  "name": "posthtml-prefix-class-angular",
+  "version": "0.0.1",
+  "description": "PostHTML plugin to prefix class names and is compatible with angular ngClass",
   "keywords": [
     "posthtml",
     "posthtml-plugin",
@@ -10,12 +10,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stevenbenisek/posthtml-prefix-class.git"
+    "url": "git@github.com:tfiwm/posthtml-prefix-class-angular.git"
   },
   "bugs": {
-    "url": "https://github.com/stevenbenisek/posthtml-prefix-class/issues"
+    "url": "https://github.com/tfiwm/posthtml-prefix-class-angular/issues"
   },
-  "homepage": "https://github.com/stevenbenisek/posthtml-prefix-class",
+  "homepage": "https://github.com/tfiwm/posthtml-prefix-class-angula",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R spec ./test/test.js"

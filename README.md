@@ -1,20 +1,24 @@
-# posthtml-prefix-class
+# posthtml-prefix-class-angular
 
-[![Build Status](https://travis-ci.org/stevenbenisek/posthtml-prefix-class.svg)](https://travis-ci.org/stevenbenisek/posthtml-prefix-class)
+[PostHTML](https://github.com/posthtml/posthtml) plugin to prefix class names and ng-class object expressions.
+It supports only simple object expressions till now e.g.
+```html
+<div ng-class="{test: vm.isTest, 'is-visible': vm.isVisible}">/div>
+```
 
-[PostHTML](https://github.com/posthtml/posthtml) plugin to prefix class names.
+Feel free to extend it ;)
 
 ## Installation
 
 ```shell
-npm install --save-dev posthtml-prefix-class
+npm install --save-dev posthtml-prefix-class-angular
 ```
 
 ## Usage
 
 ```js
 var posthtml = require('posthtml');
-var posthtmlPrefixClass = require('posthtml-prefix-class');
+var posthtmlPrefixClass = require('posthtml-prefix-class-angular');
 
 posthtml()
     .use(posthtmlPrefixClass({
@@ -22,11 +26,11 @@ posthtml()
         ignore: ['selector-2']
     }))
     .process(
-        '<div class="selector-1"><div class="selector-2"></div></div>'
+        '<div ng-class="{\'is-visible\': vm.isVisible}"><div class="selector-2"></div></div>'
     )
     .then(function (output) {
         console.log(output.html);
-        // <div class="prefix-selector-1"><div class="selector-2"></div></div>
+        // <div ng-class="{'prefix-is-visible':vm.isVisible}"><div class="prefix-selector-2"></div></div>
     });
 ```
 
@@ -49,19 +53,19 @@ A class name, or an array of class names, to be excluded from prefixing.
 
 ```js
 var posthtml = require('posthtml');
-var posthtmlPrefixClass = require('posthtml-prefix-class');
+var posthtmlPrefixClass = require('posthtml-prefix-class-angular');
 
 posthtml()
     .use(posthtmlPrefixClass({
         prefix: 'prefix-',
-        ignore: ['selector-*']
+        ignore: ['selector-2']
     }))
     .process(
-        '<div class="selector-1"><div class="selector-2"></div></div>'
+        '<div ng-class="{\'is-visible\': vm.isVisible}"><div class="selector-2"></div></div>'
     )
     .then(function (output) {
         console.log(output.html);
-        // <div class="selector-1"><div class="selector-2"></div></div>
+        // <div ng-class="{'is-visible':vm.isVisible}"><div class="selector-2"></div></div>
     });
 ```
 
