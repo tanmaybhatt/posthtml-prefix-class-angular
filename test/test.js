@@ -6,6 +6,7 @@ var posthtmlPrefixClass = require('../index.js');
 
 var input = '<div class="selector-1 selector-2"></div>';
 var inputAngularNgClass = '<div ng-class="{strike: deleted, bold: important, ' + "'" + 'has-error' + "'" + ': error}"></div>';
+var inputAngularClassInterpolation = `<div class="modal-dialog {{size ? 'modal-' + size : ''}}"></div>`;
 
 function test(input, expected, options, done) {
     return posthtml()
@@ -35,6 +36,24 @@ describe('posthtml-prefix-class', function () {
             inputAngularNgClass,
             '<div ng-class="{\'strike\':deleted,\'bold\':important,' + "'" + 'has-error' + "'" + ':error}"></div>',
             {},
+            done
+        );
+    });
+
+    it('posthtmlPrefixClass() with class interpolation', function (done) {
+        test(
+            inputAngularClassInterpolation,
+            `<div class="modal-dialog {{size ? 'modal-' + size : ''}}"></div>`,
+            {},
+            done
+        );
+    });
+
+    it('posthtmlPrefixClass({ prefix: String }) with class interpolation', function (done) {
+        test(
+            inputAngularClassInterpolation,
+            `<div class="prefix-modal-dialog prefix-{{size ? 'modal-' + size : ''}}"></div>`,
+            {prefix: 'prefix-'},
             done
         );
     });
