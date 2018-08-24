@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/tfiwm/posthtml-prefix-class-angular/issues"
   },
-  "homepage": "https://github.com/tfiwm/posthtml-prefix-class-angula",
+  "homepage": "https://github.com/tfiwm/posthtml-prefix-class-angular",
   "main": "index.js",
   "scripts": {
     "test": "mocha -R spec ./test/test.js"
