@@ -1,6 +1,6 @@
 {
   "name": "posthtml-prefix-class-angular",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "PostHTML plugin to prefix class names and is compatible with angular ngClass",
   "keywords": [
     "posthtml",
