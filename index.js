@@ -20,16 +20,16 @@ module.exports = function (options) {
             let interpolationMap = {};
             var attrs = node.attrs || false;
 
-            if(attrs.class) {
-                node.attrs.class = extractClassInterpolations(attrs.class, options, interpolationMap);
-            }
+            // if(attrs.class) {
+            //     node.attrs.class = extractClassInterpolations(attrs.class, options, interpolationMap);
+            // }
 
-            var classNames = attrs.class && attrs.class.split(' ');
+            // var classNames = attrs.class && attrs.class.split(' ');
             var ngClassNames = attrs['ng-class'];
 
-            if (classNames) {
-                node.attrs.class = prefixClasses(classNames, options, interpolationMap);
-            }
+            // if (classNames) {
+            //     node.attrs.class = prefixClasses(classNames, options, interpolationMap);
+            // }
 
             if (ngClassNames) {
                 node.attrs['ng-class'] = prefixNgClasses(ngClassNames, options);
